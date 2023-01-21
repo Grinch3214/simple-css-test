@@ -1,7 +1,10 @@
 <template>
 	<div class="quiz">
-		<questions />
-		<result />
+		<questions
+			v-if="questionAnswered < questions.length"
+			:questions="questions"
+		/>
+		<result v-else />
 		<button class="quiz__btn">Reset</button>
 	</div>
 </template>
@@ -18,6 +21,7 @@ export default {
 	},
 	data() {
 		return {
+			questionAnswered: 0,
 			questions: [
 				{
 					q: 'What is 2 + 2?',
