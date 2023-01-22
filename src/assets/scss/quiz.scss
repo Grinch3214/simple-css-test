@@ -12,15 +12,24 @@
 	}
 
 	&__progress {
-		background: var(--red-color);
+		position: relative;
+		background: var(--bg-progress-color);
 		color: var(--white-color);
 		padding: .7rem;
 	}
 
 	&__bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background: var(--red-color);
+		transition: .3s;
 	}
 
 	&__status {
+		position: inherit;
+		z-index: 2;
 	}
 
 	&__wrap {
