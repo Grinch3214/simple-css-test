@@ -1,12 +1,33 @@
 <template>
 	<div class="quiz__result">
-      <div class="quiz__title">You got sample result 1!</div>
-      <div class="quiz__desc">Enter a short description here about the result.</div>
+      <div class="quiz__title">{{ results[resultIndex].title }}</div>
+      <div class="quiz__desc">{{ results[resultIndex].desc }}</div>
     </div>
 </template>
 
 <script>
 export default {
-	name: 'Result'
+	name: 'Result',
+	props: {
+		totalCorrect: {
+			type: Number,
+		},
+		results: {
+			type: Array,
+		}
+	},
+	computed: {
+		resultIndex() {
+			let index = 0;
+
+			this.results.forEach((element, inx) => {
+				if(element.min <= this.totalCorrect && element.max >= this.totalCorrect) {
+					index = inx;
+				}
+			});
+			
+			return index;
+		}
+	}
 }
 </script>

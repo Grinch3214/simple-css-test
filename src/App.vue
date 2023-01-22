@@ -6,7 +6,11 @@
 			:questionAnswered="questionAnswered"
 			@question-answered="questionAnswer"
 		/>
-		<result v-else />
+		<result 
+			v-else
+			:totalCorrect="totalCorrect"
+			:results="results"
+		/>
 		<button class="quiz__btn">Reset</button>
 	</div>
 </template>
