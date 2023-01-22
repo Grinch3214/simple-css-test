@@ -11,7 +11,11 @@
 			:totalCorrect="totalCorrect"
 			:results="results"
 		/>
-		<button class="quiz__btn">Reset</button>
+		<button
+			class="quiz__btn"
+			@click.prevent="reset"
+			v-if="questionAnswered === questions.length"
+		>Reset</button>
 	</div>
 </template>
 
@@ -113,6 +117,11 @@ export default {
 			}
 
 			this.questionAnswered++;
+		},
+
+		reset() {
+			this.questionAnswered = 0;
+			this.totalCorrect = 0;
 		}
 	}
 };
