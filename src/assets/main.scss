@@ -51,7 +51,7 @@ table {
 	--bg-progress-color: #9c9c9c;
 	--red-color: #e02d54;
 	--green-color: #00b150;
-	--green-blue-color: #1ff8ff;
+	--green-blue-color: #06a5aa;
 	--white-color: #fff;
 
 	--red-color-hover: #be2345;
@@ -81,4 +81,10 @@ body {
 	background: var(--bg-main-color);
 }
 
+.title {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	color: var(--red-color-hover);
+}
 @import 'scss/quiz'

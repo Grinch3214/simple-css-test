@@ -1,4 +1,5 @@
 <template>
+	<h1 class="title">Простий тест по CSS</h1>
 	<div class="quiz">
 		<questions
 			v-if="questionAnswered < questions.length"
@@ -35,61 +36,78 @@ export default {
 			totalCorrect: 0,
 			questions: [
 				{
-					q: 'What is 2 + 2?',
+					q: 'Як зробити такий відступ: padding-top:10px, padding-bottom: 20px, padding-left: 5px, padding-right: 8px?',
 					answers: [
 						{
-							text: '4',
+							text: 'padding: 10px 8px 20px 5px;',
 							is_correct: true
 						},
 						{
-							text: '3',
+							text: 'padding: 10px 20px 5px 8px;',
 							is_correct: false
 						},
 						{
-							text: 'Fish',
+							text: 'padding: 20px 10px 5px 8px;',
 							is_correct: false
 						},
 						{
-							text: '5',
+							text: 'padding: 5px 8px 20px 10px;',
 							is_correct: false
 						}
 					]
 				},
 				{
-					q: 'How many letters are in the word "Banana"?',
+					q: 'Яким чином можно додати CSS?',
 					answers: [
 						{
-							text: '5',
+							text: 'Вбудований стиль ( Inline Styling )',
 							is_correct: false
 						},
 						{
-							text: '7',
+							text: 'Внутрішньої таблиці стилів (Internal Style Sheet)',
 							is_correct: false
 						},
 						{
-							text: '6',
+							text: 'Зовнішньої таблиці стилів (External Style Sheet)',
+							is_correct: false
+						},
+						{
+							text: 'Трьома способами вище',
+							is_correct: true
+						}
+					]
+				},
+				{
+					q: 'Який HTML-тег використовується для встановлення внутрішньої таблиці стилю?',
+					answers: [
+						{
+							text: '<css>',
+							is_correct: false
+						},
+						{
+							text: '<style>',
 							is_correct: true
 						},
 						{
-							text: '12',
+							text: '<script>',
 							is_correct: false
 						}
 					]
 				},
 				{
-					q: 'Find the missing letter: C_ke',
+					q: 'Як задати кольор шрифту?',
 					answers: [
 						{
-							text: 'e',
+							text: 'font-color: #fafafa;',
 							is_correct: false
 						},
 						{
-							text: 'a',
+							text: 'font-color: red;',
+							is_correct: false
+						},
+						{
+							text: 'color: red;',
 							is_correct: true
-						},
-						{
-							text: 'i',
-							is_correct: false
 						}
 					]
 				},
@@ -98,14 +116,14 @@ export default {
 				{
 					min: 0,
 					max: 2,
-					title: "Try again!",
-					desc: "Do a little more studying and you may succeed!"
+					title: "Спробуй ще!",
+					desc: "Непогано, але ти можеш краще!"
 				},
 				{
 					min: 3,
-					max: 3,
-					title: "Wow, you're a genius!",
-					desc: "Studying has definitely paid off for you!"
+					max: 4,
+					title: "Неймовірно!",
+					desc: "Твоє навчання приносить тобі плоди!"
 				}
 			]
 		};
