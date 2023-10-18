@@ -20,9 +20,14 @@
 	</div>
 </template>
 
+<!-- <script setup>
+	import Questions from './components/Questions.vue'
+	import Result from './components/Result.vue'
+</script> -->
+
 <script>
-import Questions from "./components/Questions.vue";
-import Result from './components/Result.vue';
+import Questions from "./components/Questions.vue"
+import Result from './components/Result.vue'
 
 export default {
 	name: "App",
