@@ -1,13 +1,13 @@
 <template>
 	<h1 class="title">Простий тест по CSS</h1>
 	<div class="quiz">
-		<questions
+		<QuestionsComponent
 			v-if="questionAnswered < questions.length"
 			:questions="questions"
 			:questionAnswered="questionAnswered"
 			@question-answered="questionAnswer"
 		/>
-		<result 
+		<ResultComponent
 			v-else
 			:totalCorrect="totalCorrect"
 			:results="results"
@@ -20,12 +20,123 @@
 	</div>
 </template>
 
-<!-- <script setup>
-	import Questions from './components/Questions.vue'
-	import Result from './components/Result.vue'
-</script> -->
+<script setup>
+	import QuestionsComponent from './components/Questions.vue'
+	import ResultComponent from './components/Result.vue'
+	import { ref } from 'vue'
 
-<script>
+	const questionAnswered = ref(0)
+	const totalCorrect = ref(0)
+
+	const questions = [
+		{
+			q: 'Як зробити такий відступ: padding-top:10px, padding-bottom: 20px, padding-left: 5px, padding-right: 8px?',
+			answers: [
+				{
+					text: 'padding: 10px 8px 20px 5px;',
+					is_correct: true
+				},
+				{
+					text: 'padding: 10px 20px 5px 8px;',
+					is_correct: false
+				},
+				{
+					text: 'padding: 20px 10px 5px 8px;',
+					is_correct: false
+				},
+				{
+					text: 'padding: 5px 8px 20px 10px;',
+					is_correct: false
+				}
+			]
+		},
+		{
+			q: 'Яким чином можно додати CSS?',
+			answers: [
+				{
+					text: 'Вбудований стиль ( Inline Styling )',
+					is_correct: false
+				},
+				{
+					text: 'Внутрішньої таблиці стилів (Internal Style Sheet)',
+					is_correct: false
+				},
+				{
+					text: 'Зовнішньої таблиці стилів (External Style Sheet)',
+					is_correct: false
+				},
+				{
+					text: 'Трьома способами вище',
+					is_correct: true
+				}
+			]
+		},
+		{
+			q: 'Який HTML-тег використовується для встановлення внутрішньої таблиці стилю?',
+			answers: [
+				{
+					text: '<css>',
+					is_correct: false
+				},
+				{
+					text: '<style>',
+					is_correct: true
+				},
+				{
+					text: '<script>',
+					is_correct: false
+				}
+			]
+		},
+		{
+			q: 'Як задати кольор шрифту?',
+			answers: [
+				{
+					text: 'font-color: #fafafa;',
+					is_correct: false
+				},
+				{
+					text: 'font-color: red;',
+					is_correct: false
+				},
+				{
+					text: 'color: red;',
+					is_correct: true
+				}
+			]
+		},
+	]
+
+	const results = [
+		{
+			min: 0,
+			max: 2,
+			title: "Спробуй ще!",
+			desc: "Непогано, але ти можеш краще!"
+		},
+		{
+			min: 3,
+			max: 4,
+			title: "Неймовірно!",
+			desc: "Твоє навчання приносить тобі плоди!"
+		}
+	]
+
+	const questionAnswer = (is_correct) => {
+		if(is_correct) {
+			totalCorrect.value++;
+		}
+		questionAnswered.value++;
+	}
+
+	const reset = () => {
+		questionAnswered.value = 0;
+		totalCorrect.value = 0;
+	}
+
+</script>
+
+<!-- <script>
 import Questions from "./components/Questions.vue"
 import Result from './components/Result.vue'
 
@@ -148,4 +259,4 @@ export default {
 		}
 	}
 };
-</script>
+</script> -->
