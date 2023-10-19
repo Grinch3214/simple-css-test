@@ -1,7 +1,7 @@
 <template>
 	<div class="quiz__questions">
       <div class="quiz__progress">
-        <div class="quiz__bar" :style="{ width: `${(questionAnswered / questions.length) * 100}%` }"></div>
+        <div class="quiz__bar" :style="{ width: quizBar }"></div>
         <div class="quiz__status">{{ questionAnswered }} out of {{ questions.length }} questions answered</div>
       </div>
       <div
@@ -37,6 +37,11 @@ export default {
 		}
 	},
 	emits: ['question-answered'],
+	computed: {
+		quizBar() {
+			return `${(this.questionAnswered / this.questions.length) * 100}%`
+		}
+	},
 	methods: {
 		selectAnswer(is_correct) {
 			this.$emit('question-answered', is_correct);
