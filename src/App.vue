@@ -1,5 +1,5 @@
 <template>
-	<h1 class="title">Простий тест по CSS</h1>
+	<h1 class="title">{{ title }}</h1>
 	<div class="quiz">
 		<QuestionsComponent
 			v-if="questionAnswered < questions.length"
@@ -28,6 +28,7 @@
 
 	const questionAnswered = ref(0)
 	const totalCorrect = ref(0)
+	const title = ref('Тест по CSS')
 
 	const questionAnswer = (is_correct) => {
 		if(is_correct) {
