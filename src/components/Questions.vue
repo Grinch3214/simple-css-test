@@ -40,7 +40,6 @@ import { computed } from 'vue'
 	const emits = defineEmits(['question-answered'])
 
 	const selectAnswer = (is_correct) => {
-			console.log(is_correct)
 			emits('question-answered', is_correct)
 		}
 
