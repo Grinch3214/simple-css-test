@@ -25,27 +25,26 @@
     </div>
 </template>
 
-<script>
-export default {
-	name: 'Questions',
-	props: {
+<script setup>
+import { computed } from 'vue'
+
+	const props = defineProps({
 		questions: {
 			type: Array,
 		},
 		questionAnswered: {
 			type: Number
 		}
-	},
-	emits: ['question-answered'],
-	computed: {
-		quizBar() {
-			return `${(this.questionAnswered / this.questions.length) * 100}%`
+	})
+
+	const emits = defineEmits(['question-answered'])
+
+	const selectAnswer = (is_correct) => {
+			console.log(is_correct)
+			emits('question-answered', is_correct)
 		}
-	},
-	methods: {
-		selectAnswer(is_correct) {
-			this.$emit('question-answered', is_correct);
-		}
-	}
-}
+
+	const quizBar = computed(() => {
+		return `${(props.questionAnswered / props.questions.length) * 100}%`
+	})
 </script>
