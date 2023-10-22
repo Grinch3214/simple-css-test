@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+	import { computed } from 'vue'
 
 	const props = defineProps({
 		questions: {
@@ -40,8 +40,8 @@ import { computed } from 'vue'
 	const emits = defineEmits(['question-answered'])
 
 	const selectAnswer = (is_correct) => {
-			emits('question-answered', is_correct)
-		}
+		emits('question-answered', is_correct)
+	}
 
 	const quizBar = computed(() => {
 		return `${(props.questionAnswered / props.questions.length) * 100}%`
