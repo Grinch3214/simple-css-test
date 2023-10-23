@@ -75,6 +75,23 @@ export const questions = [
 			}
 		]
 	},
+	{
+		q: 'Який вірний HTML тег для програвання аудіо файлів?',
+		answers: [
+			{
+				text: '<audio>',
+				is_correct: true
+			},
+			{
+				text: '<sound>',
+				is_correct: false
+			},
+			{
+				text: '<mp3>',
+				is_correct: false
+			}
+		]
+	},
 ]
 
 export const results = [
@@ -86,7 +103,7 @@ export const results = [
 	},
 	{
 		min: 3,
-		max: 4,
+		max: 5,
 		title: "Неймовірно!",
 		desc: "Твоє навчання приносить тобі плоди!"
 	}
